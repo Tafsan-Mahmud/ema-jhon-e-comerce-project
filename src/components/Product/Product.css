@@ -11,7 +11,7 @@
 .img-div{
     margin-right: 10px;
 }
-.btn{
+.btn-custom{
     background-color: rgb(233, 173, 23);
     width: 150px;
     height: 27px;
@@ -19,6 +19,6 @@
     border-radius: 5px;
     cursor: pointer;
 }
-.btn:hover{
+.btn-custom:hover{
     background-color: rgb(187, 134, 0);
 }
