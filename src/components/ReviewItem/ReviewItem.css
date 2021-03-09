@@ -1,0 +1,13 @@
+.review{
+    display: flex;
+    border-bottom: 2px solid lightgray;
+    margin-right: 5px;
+    padding-bottom: 5px;
+}
+.review h3{
+    color: blue;
+    font-weight: 400;
+}
+.gap{
+    margin-left: 10px;
+}
