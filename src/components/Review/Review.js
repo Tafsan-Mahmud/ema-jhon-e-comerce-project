@@ -13,7 +13,7 @@ const Review = () => {
      setPlaceOrder(true);
      processOrder();
  }
-    const removePeodect = (ProductKey) =>{
+    const removeProduct = (ProductKey) =>{
         const newCart = cart.filter(pd => pd.key !== ProductKey)
         setCart(newCart);
         removeFromDatabaseCart(ProductKey)
@@ -38,7 +38,7 @@ const Review = () => {
         <div className="twin-container">
             <div className="products-container">
                     {
-                        cart.map(pd => <ReviewItem removePeodect={removePeodect}  product={pd}></ReviewItem>)
+                        cart.map(pd => <ReviewItem removePeodect={removeProduct}  product={pd}></ReviewItem>)
                     }
                     { thankYou } 
             </div>

@@ -13,7 +13,7 @@ const ReviewItem = (props) => {
             <h2> Quantity : {quantity}</h2>
             <p>$ {price}</p>
             <button 
-            onClick={()=> props.removePeodect(key)}
+            onClick={()=> props.removeProduct(key)}
             className="btn-custom-cart"
             >Remove</button>
             </div>
