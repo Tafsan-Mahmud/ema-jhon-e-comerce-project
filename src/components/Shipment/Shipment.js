@@ -1,12 +1,28 @@
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { userContex } from '../../App';
+import { getDatabaseCart, processOrder } from '../../utilities/databaseManager';
 import './Shipment.css';
 
 const Shipment = () => {
-    const [logedInUser, setLogedInUser] = useContext(userContex)
+    const [logedInUser, setLogedInUser] = useContext(userContex) 
     const { register, handleSubmit, watch, errors } = useForm();
-    const onSubmit = data => console.log(data);
+    const onSubmit = data =>{
+      const saveCart = getDatabaseCart();
+      const  orderDetails = {...logedInUser , products:saveCart , shipment: data, orderTime: new Date() }
+      fetch('https://tranquil-sands-06135.herokuapp.com/addOrder' , {
+        method:'POST',
+        headers:{'Content-Type' : 'application/json'},
+        body: JSON.stringify(orderDetails)
+      })
+      .then(res =>res.json())
+      .then(data =>{
+        if(data){
+          processOrder();
+          alert('your order placed successfully')
+        }
+      })
+    };
   
     console.log(watch("example"));
   

@@ -8,14 +8,14 @@ const Product = (props) => {
     return (
         <div className="product">
             <div className="img-div">
-                <img src={img} alt="" />
+                <img src={img} alt=""/>
             </div> 
             <div>
                 <h4 className="product-name"><Link to={"/product/" + key}>{name}</Link></h4>
                 <p><small>by : P{seller}</small></p>
                 <p><small>${price}</small></p>
                 <p><small>only {stock} left in stock - order soon</small></p>
-                {props.showAddtoCartBtn === true && <button className="btn-custom" onClick={()=>props.handleAdd(props.product)}> <FontAwesomeIcon icon={faShoppingCart} /> add to cart</button>}
+                {props.showAddtoCartBtn === true && <button className="btn-custom" onClick={()=>props.handleAdd(props.product)}><FontAwesomeIcon icon={faShoppingCart} /> add to cart</button>}
             </div>
 
         </div>

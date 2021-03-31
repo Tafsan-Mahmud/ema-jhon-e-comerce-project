@@ -82,8 +82,8 @@ function Login() {
       setUser(NewUSerInfo);
     }
   }
-console.log(user);
 
+  
   return (
     <div style={{ textAlign: 'center' }}>
       { user.isSignIn ? <button onClick={signOut}>sign out</button> :
