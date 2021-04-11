@@ -9,12 +9,13 @@ const Shop = () => {
     // const first10 = fakeData.slice(0, 10);
     const [products, setProducts] = useState([]);
     const [cart, setCart] = useState([])
+    const [search, setSearch] = useState('')
 
     useEffect(()=>{
-        fetch('https://tranquil-sands-06135.herokuapp.com/products')
+        fetch('http://localhost:5000/products?search='+search)
         .then(res =>res.json())
         .then(data =>setProducts(data))
-    } , [])
+    } , [search])
 
     useEffect(() => {
         const saveCart = getDatabaseCart();
@@ -48,9 +49,13 @@ const Shop = () => {
         setCart(newCart)
         addToDatabaseCart(pd.key, count)
     }
+    const handleSearch =event=>{
+        setSearch(event.target.value)
+    }
     return (
         <div className="twin-container">
             <div className="products-container">
+            <input  className="form-control m-3 w-50" placeholder=" search product what you need" onBlur={handleSearch} type="text"/>
                 {
                     products.length === 0 && <p>Loading...</p>
                 }
