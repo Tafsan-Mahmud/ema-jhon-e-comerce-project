@@ -12,7 +12,7 @@ const Shop = () => {
     const [search, setSearch] = useState('')
 
     useEffect(()=>{
-        fetch('http://localhost:5000/products?search='+search)
+        fetch('https://tranquil-sands-06135.herokuapp.com/products?search='+search)
         .then(res =>res.json())
         .then(data =>setProducts(data))
     } , [search])
